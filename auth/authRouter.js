@@ -42,7 +42,7 @@ router.post('/login', (req, res, next) => {
 })
 
 router.get('/logout', (req, res) => {
-    if (req.session) {
+    if (req.session.loggedIn) {
         req.session.destroy(err => {
             if(err){
                 res.json('error when logging out!')
